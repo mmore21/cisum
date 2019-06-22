@@ -26,14 +26,10 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
-        playlist.cpp \
-        track.cpp
+        mainwindow.cpp
 
 HEADERS += \
-        mainwindow.h \
-        playlist.h \
-        track.h
+        mainwindow.h
 
 FORMS += \
         mainwindow.ui

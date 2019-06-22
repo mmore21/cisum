@@ -4,11 +4,12 @@
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QMediaPlayer>
+#include <QMediaPlaylist>
+#include <QMediaContent>
 #include <QTimer>
 #include <QListWidgetItem>
-
-#include "track.h"
-#include "playlist.h"
+#include <iomanip>
+#include <sstream>
 
 namespace Ui {
 class MainWindow;
@@ -23,42 +24,120 @@ public:
     ~MainWindow();
 
 private slots:
+    //! Member function that updates track position label and slider every default timer interval.
+    /*!
+     * \return void
+     */
     void update();
 
-    void on_addButton_clicked();
-
+    //! Member function that updates duration of current track.
+    /*!
+     * \return void
+     */
     void updateMusicTimeLabel();
 
+    //! Member function that updates position of current track.
+    /*!
+     * \return void
+     */
     void updatePlayTimeLabel();
 
-    void updatePlaylistList();
+    //! Member function that updates the label of the current track.
+    /*!
+     * \return void
+     */
+    void updateCurrentTrackLabel();
 
-    void on_trackSlider_sliderMoved(int position);
+    //! Member function that updates the display of the play button.
+    /*!
+     * \return void
+     */
+    void updatePlayButtonStatus();
 
-    void on_playButton_clicked();
+    //! Member function that prompts user to locally add music files.
+    /*!
+     * \return void
+     */
+    void on_addButton_clicked();
 
-    void on_nextButton_clicked();
-
-    void on_backButton_clicked();
-
-    void on_loopButton_toggled(bool checked);
-
-    void on_shuffleButton_toggled(bool checked);
-
-    void changeTrack(int index);
-
-    void on_playlistList_itemDoubleClicked(QListWidgetItem *item);
-
+    //! Member function that removes a selected file from playlist.
+    /*!
+     * \return void
+     */
     void on_removeButton_clicked();
 
+    //! Member function that plays or pauses the media.
+    /*!
+     * \return void
+     */
+    void on_playButton_clicked();
+
+    //! Member function that plays the next track in playlist.
+    /*!
+     * \return void
+     */
+    void on_nextButton_clicked();
+
+    //! Member function that plays the previous track in playlist.
+    /*!
+     * \return void
+     */
+    void on_backButton_clicked();
+
+    //! Member function that changes song to selected track.
+    /*!
+     * \param item item selected from playlist.
+     * \return void
+     */
+    void on_playlistList_itemDoubleClicked(QListWidgetItem *item);
+
+    //! Member function that sets loop status of current track in playlist.
+    /*!
+     * \param checked loop toggle status.
+     * \return void
+     */
+    void on_loopButton_toggled(bool checked);
+
+    //! Member function that sets shuffle status of playlist.
+    /*!
+     * \param checked shuffle toggle status.
+     * \return void
+     */
+    void on_shuffleButton_toggled(bool checked);
+
+    //! Member function that updates player position of current track.
+    /*!
+     * \param position position of the slider.
+     * \return void
+     */
+    void on_trackSlider_sliderMoved(int position);
+
+    //! Member function that updates player volume when slider is changed.
+    /*!
+     * \param value value of the slider.
+     * \return void
+     */
+    void on_volumeSlider_valueChanged(int value);
+
+    //! Member function that saves current playlist to file.
+    /*!
+     * \return void
+     */
+    void on_saveButton_clicked();
+
+    //! Member function that uploads and loads playlist from file.
+    /*!
+     * \return void
+     */
+    void on_actionUpload_triggered();
+
+    void on_actionClear_triggered();
+
 private:
-    Ui::MainWindow *ui;
-    QMediaPlayer *player;
-    QTimer *updater;
-    Playlist playlist;
-    bool loop;
-    bool shuffle;
-    int currentIndex;
+    Ui::MainWindow *ui;         /*!< MainWindow UI */
+    QMediaPlayer *player;       /*!< music player */
+    QTimer *updater;            /*!< timer to update UI */
+    QMediaPlaylist *playlist;   /*!< music playlist */
 };
 
 #endif // MAINWINDOW_H
