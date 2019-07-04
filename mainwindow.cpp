@@ -24,6 +24,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->currentTrackLabel->clear();
     ui->volumeSlider->setValue(100);
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
+
+    animation = new QPropertyAnimation(ui->title, "geometry");
+    animation->setDuration(750);
+    animation->setKeyValueAt(0, QRect(10, -100, 871, 101));
+    animation->setKeyValueAt(1, QRect(10, 10, 871, 101));
+
+    animation->start();
+
+    QFile *styleSheet = new QFile(":/css/css/button.css");
+    styleSheet->open(QFile::ReadOnly);
+    styling = QLatin1String(styleSheet->readAll());
 }
 
 MainWindow::~MainWindow()
@@ -75,7 +86,6 @@ void MainWindow::updateCurrentTrackLabel()
 
 void MainWindow::updatePlayButtonStatus()
 {
-    qDebug() << "HERE";
     if (player->state() == QMediaPlayer::PlayingState)
     {
         ui->playButton->setText("Pause");
@@ -141,10 +151,14 @@ void MainWindow::on_loopButton_toggled(bool checked)
 {
     if (checked)
     {
+        ui->loopButton->setStyleSheet("background-color: #0099ff; border-color: #0099ff");
+
         playlist->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
     }
     else
     {
+        ui->loopButton->setStyleSheet(styling);
+
         if (ui->shuffleButton->isChecked())
         {
             playlist->setPlaybackMode(QMediaPlaylist::Random);
@@ -160,6 +174,8 @@ void MainWindow::on_shuffleButton_toggled(bool checked)
 {
     if (checked)
     {
+        ui->shuffleButton->setStyleSheet("background-color: #0099ff; border-color: #0099ff");
+
         if (ui->loopButton->isChecked())
         {
             playlist->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
@@ -171,6 +187,8 @@ void MainWindow::on_shuffleButton_toggled(bool checked)
     }
     else
     {
+        ui->shuffleButton->setStyleSheet(styling);
+
         if (ui->loopButton->isChecked())
         {
             playlist->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);

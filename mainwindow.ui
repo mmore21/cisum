@@ -19,14 +19,18 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">color: white;
+background-color: black;</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="playButton">
     <property name="geometry">
      <rect>
       <x>400</x>
       <y>500</y>
-      <width>101</width>
-      <height>41</height>
+      <width>91</width>
+      <height>43</height>
      </rect>
     </property>
     <property name="font">
@@ -36,6 +40,23 @@
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa31a, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #e68a00);
+border-width: 1px;
+border-color: #ff9900;
+border-style: solid;
+border-radius: 7;
+padding: 3px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #995c00, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #995c00);
+}</string>
     </property>
     <property name="text">
      <string>Play</string>
@@ -56,8 +77,14 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Bebas</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>0:00</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;0:00&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="musicTimeLabel">
@@ -69,8 +96,14 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Bebas</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>0:00</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;0:00&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -92,7 +125,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Cisum</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Cisum&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -102,10 +135,68 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>470</y>
+      <y>460</y>
       <width>861</width>
-      <height>22</height>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSlider::groove:horizontal {
+border: 1px solid #bbb;
+background: white;
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::sub-page:horizontal {
+background: qlineargradient(x1: 0, y1: 0,    x2: 0, y2: 1,
+    stop: 0 #ffc266, stop: 1 #b36b00);
+background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,
+    stop: 0 #ffc266, stop: 1 #b36b00);
+border: 1px solid #777;
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::add-page:horizontal {
+background: #fff;
+border: 1px solid #777;
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #eee, stop:1 #ccc);
+border: 1px solid #777;
+width: 14px;
+margin-top: -2px;
+margin-bottom: -2px;
+border-radius: 4px;
+}
+
+QSlider::handle:horizontal:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid #444;
+border-radius: 4px;
+}
+
+QSlider::sub-page:horizontal:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:horizontal:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:horizontal:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
     </property>
     <property name="maximum">
      <number>1000</number>
@@ -122,6 +213,17 @@
       <width>871</width>
       <height>311</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QListWidget::item:selected {
+	background-color: rgb(255, 153, 0);
+}</string>
     </property>
    </widget>
    <widget class="QPushButton" name="addButton">
@@ -140,6 +242,23 @@
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa31a, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #e68a00);
+border-width: 1px;
+border-color: #ff9900;
+border-style: solid;
+border-radius: 7;
+padding: 3px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #995c00, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #995c00);
+}</string>
     </property>
     <property name="text">
      <string>Plus</string>
@@ -162,6 +281,23 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa31a, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #e68a00);
+border-width: 1px;
+border-color: #ff9900;
+border-style: solid;
+border-radius: 7;
+padding: 3px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #995c00, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #995c00);
+}</string>
+    </property>
     <property name="text">
      <string>Minus</string>
     </property>
@@ -171,8 +307,8 @@
      <rect>
       <x>510</x>
       <y>500</y>
-      <width>41</width>
-      <height>41</height>
+      <width>62</width>
+      <height>43</height>
      </rect>
     </property>
     <property name="font">
@@ -182,6 +318,23 @@
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa31a, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #e68a00);
+border-width: 1px;
+border-color: #ff9900;
+border-style: solid;
+border-radius: 7;
+padding: 3px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #995c00, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #995c00);
+}</string>
     </property>
     <property name="text">
      <string>Forward</string>
@@ -190,10 +343,10 @@
    <widget class="QPushButton" name="backButton">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>320</x>
       <y>500</y>
-      <width>41</width>
-      <height>41</height>
+      <width>62</width>
+      <height>43</height>
      </rect>
     </property>
     <property name="font">
@@ -203,6 +356,23 @@
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa31a, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #e68a00);
+border-width: 1px;
+border-color: #ff9900;
+border-style: solid;
+border-radius: 7;
+padding: 3px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #995c00, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #995c00);
+}</string>
     </property>
     <property name="text">
      <string>Backward</string>
@@ -224,6 +394,23 @@
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa31a, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #e68a00);
+border-width: 1px;
+border-color: #ff9900;
+border-style: solid;
+border-radius: 7;
+padding: 3px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #995c00, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #995c00);
+}</string>
     </property>
     <property name="text">
      <string>redo-alt</string>
@@ -252,6 +439,23 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa31a, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #e68a00);
+border-width: 1px;
+border-color: #ff9900;
+border-style: solid;
+border-radius: 7;
+padding: 3px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #995c00, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #995c00);
+}</string>
+    </property>
     <property name="text">
      <string>Random</string>
     </property>
@@ -263,13 +467,19 @@
     <property name="geometry">
      <rect>
       <x>26</x>
-      <y>440</y>
+      <y>430</y>
       <width>851</width>
-      <height>20</height>
+      <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Bebas</family>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>Tout_Oublier.mp3</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;cisum.mp3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -283,6 +493,64 @@
       <width>211</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSlider::groove:horizontal {
+border: 1px solid #bbb;
+background: white;
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::sub-page:horizontal {
+background: qlineargradient(x1: 0, y1: 0,    x2: 0, y2: 1,
+    stop: 0 #ffc266, stop: 1 #b36b00);
+background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,
+    stop: 0 #ffc266, stop: 1 #b36b00);
+border: 1px solid #777;
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::add-page:horizontal {
+background: #fff;
+border: 1px solid #777;
+height: 10px;
+border-radius: 4px;
+}
+
+QSlider::handle:horizontal {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #eee, stop:1 #ccc);
+border: 1px solid #777;
+width: 14px;
+margin-top: -2px;
+margin-bottom: -2px;
+border-radius: 4px;
+}
+
+QSlider::handle:horizontal:hover {
+background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fff, stop:1 #ddd);
+border: 1px solid #444;
+border-radius: 4px;
+}
+
+QSlider::sub-page:horizontal:disabled {
+background: #bbb;
+border-color: #999;
+}
+
+QSlider::add-page:horizontal:disabled {
+background: #eee;
+border-color: #999;
+}
+
+QSlider::handle:horizontal:disabled {
+background: #eee;
+border: 1px solid #aaa;
+border-radius: 4px;
+}</string>
     </property>
     <property name="maximum">
      <number>100</number>
@@ -308,6 +576,23 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa31a, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #e68a00);
+border-width: 1px;
+border-color: #ff9900;
+border-style: solid;
+border-radius: 7;
+padding: 3px;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+QPushButton:hover {
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #995c00, stop: 0.1 #ff9900, stop: 0.49 #e68a00, stop: 0.5 #cc7a00, stop: 1 #995c00);
+}</string>
+    </property>
     <property name="text">
      <string>Save</string>
     </property>
@@ -325,8 +610,16 @@
      <x>0</x>
      <y>0</y>
      <width>900</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>10</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
@@ -335,6 +628,12 @@
     <addaction name="actionUpload"/>
    </widget>
    <widget class="QMenu" name="menuPlaylist">
+    <property name="styleSheet">
+     <string notr="true">QAction:hover 
+{
+color:red;
+}</string>
+    </property>
     <property name="title">
      <string>Playlist</string>
     </property>
@@ -344,6 +643,12 @@
    <addaction name="menuPlaylist"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
@@ -354,12 +659,26 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionUpload">
    <property name="text">
-    <string>Upload</string>
+    <string>Import</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>10</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
    </property>
   </action>
   <action name="actionClear">
    <property name="text">
     <string>Clear</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>10</pointsize>
+    </font>
    </property>
   </action>
  </widget>

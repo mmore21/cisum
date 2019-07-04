@@ -8,6 +8,7 @@
 #include <QMediaContent>
 #include <QTimer>
 #include <QListWidgetItem>
+#include <QPropertyAnimation>
 #include <iomanip>
 #include <sstream>
 
@@ -131,6 +132,10 @@ private slots:
      */
     void on_actionUpload_triggered();
 
+    //! Member function that clears playlist.
+    /*!
+     * \return void
+     */
     void on_actionClear_triggered();
 
 private:
@@ -138,6 +143,8 @@ private:
     QMediaPlayer *player;       /*!< music player */
     QTimer *updater;            /*!< timer to update UI */
     QMediaPlaylist *playlist;   /*!< music playlist */
+    QPropertyAnimation *animation;
+    QString styling;
 };
 
 #endif // MAINWINDOW_H
