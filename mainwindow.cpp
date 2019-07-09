@@ -100,7 +100,7 @@ void MainWindow::on_addButton_clicked()
 
     for (int i = 0; i < trackUrls.size(); i++)
     {
-        QMediaContent mediaContent = QMediaContent("file://" + trackUrls.at(i));
+        QMediaContent mediaContent = QMediaContent("file:///" + trackUrls.at(i));
         playlist->addMedia(mediaContent);
         ui->playlistList->addItem(mediaContent.canonicalUrl().fileName());
     }
