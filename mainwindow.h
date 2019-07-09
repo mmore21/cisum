@@ -25,11 +25,11 @@ public:
     ~MainWindow();
 
 private slots:
-    //! Member function that updates track position label and slider every default timer interval.
+    //! Member function that updates slider every if music is playing.
     /*!
      * \return void
      */
-    void update();
+    void updateSlider();
 
     //! Member function that updates duration of current track.
     /*!
@@ -141,7 +141,6 @@ private slots:
 private:
     Ui::MainWindow *ui;         /*!< MainWindow UI */
     QMediaPlayer *player;       /*!< music player */
-    QTimer *updater;            /*!< timer to update UI */
     QMediaPlaylist *playlist;   /*!< music playlist */
     QPropertyAnimation *animation;
     QString styling;

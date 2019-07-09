@@ -10,16 +10,15 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowTitle("Cisum");
 
     player = new QMediaPlayer;
-    updater = new QTimer();
     playlist = new QMediaPlaylist();
 
-    connect(updater, SIGNAL(timeout()), this, SLOT(update()));
     connect(player, SIGNAL(durationChanged(qint64)), this, SLOT(updateMusicTimeLabel()));
     connect(player, SIGNAL(currentMediaChanged(QMediaContent)), this, SLOT(updateCurrentTrackLabel()));
     connect(player, SIGNAL(stateChanged(QMediaPlayer::State)), this, SLOT(updatePlayButtonStatus()));
+    connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(updatePlayTimeLabel()));
+    connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(updateSlider()));
 
     player->setPlaylist(playlist);
-    updater->start();
 
     ui->currentTrackLabel->clear();
     ui->volumeSlider->setValue(100);
@@ -42,15 +41,13 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::update()
+void MainWindow::updateSlider()
 {
     // if user is not dragging slider
     if (!ui->trackSlider->isSliderDown())
     {
         ui->trackSlider->setValue(static_cast<int>(static_cast<double>(player->position()) / player->duration() * 1000));
     }
-
-    updatePlayTimeLabel();
 }
 
 void MainWindow::updateMusicTimeLabel()
@@ -103,7 +100,7 @@ void MainWindow::on_addButton_clicked()
 
     for (int i = 0; i < trackUrls.size(); i++)
     {
-        QMediaContent mediaContent = QMediaContent(trackUrls.at(i));
+        QMediaContent mediaContent = QMediaContent("file://" + trackUrls.at(i));
         playlist->addMedia(mediaContent);
         ui->playlistList->addItem(mediaContent.canonicalUrl().fileName());
     }
