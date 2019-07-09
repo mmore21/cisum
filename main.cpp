@@ -17,5 +17,8 @@ int main(int argc, char *argv[])
     if (QFontDatabase::addApplicationFont(":/fonts/fonts/Rezland.ttf") < 0)
         qWarning() << "Rezland cannot be loaded !";
 
+    if (QFontDatabase::addApplicationFont(":/fonts/fonts/Arial.ttf") < 0)
+        qWarning() << "Arial cannot be loaded !";
+
     return a.exec();
 }

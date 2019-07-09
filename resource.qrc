@@ -9,5 +9,6 @@
         <file>fonts/Bebas.otf</file>
         <file>fonts/FontAwesome.otf</file>
         <file>fonts/Rezland.ttf</file>
+        <file>fonts/Arial.ttf</file>
     </qresource>
 </RCC>
