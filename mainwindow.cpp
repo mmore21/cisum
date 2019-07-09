@@ -5,32 +5,36 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    // setup main UI components
     ui->setupUi(this);
     this->setFixedSize(900, 600);
     this->setWindowTitle("Cisum");
 
+    // initialize music player and load playlist
     player = new QMediaPlayer;
     playlist = new QMediaPlaylist();
 
+    // connect player signals to UI slots
     connect(player, SIGNAL(durationChanged(qint64)), this, SLOT(updateMusicTimeLabel()));
     connect(player, SIGNAL(currentMediaChanged(QMediaContent)), this, SLOT(updateCurrentTrackLabel()));
     connect(player, SIGNAL(stateChanged(QMediaPlayer::State)), this, SLOT(updatePlayButtonStatus()));
     connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(updatePlayTimeLabel()));
     connect(player, SIGNAL(positionChanged(qint64)), this, SLOT(updateSlider()));
 
+    // setup music player with default values
     player->setPlaylist(playlist);
-
     ui->currentTrackLabel->clear();
     ui->volumeSlider->setValue(100);
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
+    // animation
     animation = new QPropertyAnimation(ui->title, "geometry");
     animation->setDuration(750);
     animation->setKeyValueAt(0, QRect(10, -100, 871, 101));
     animation->setKeyValueAt(1, QRect(10, 10, 871, 101));
-
     animation->start();
 
+    // import stylesheet contents into string
     QFile *styleSheet = new QFile(":/css/css/button.css");
     styleSheet->open(QFile::ReadOnly);
     styling = QLatin1String(styleSheet->readAll());

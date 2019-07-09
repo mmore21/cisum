@@ -139,11 +139,11 @@ private slots:
     void on_actionClear_triggered();
 
 private:
-    Ui::MainWindow *ui;         /*!< MainWindow UI */
-    QMediaPlayer *player;       /*!< music player */
-    QMediaPlaylist *playlist;   /*!< music playlist */
-    QPropertyAnimation *animation;
-    QString styling;
+    Ui::MainWindow *ui;             /*!< MainWindow UI */
+    QMediaPlayer *player;           /*!< music player */
+    QMediaPlaylist *playlist;       /*!< music playlist */
+    QPropertyAnimation *animation;  /*!< animation controller */
+    QString styling;                /*!< stylesheet contents */
 };
 
 #endif // MAINWINDOW_H
