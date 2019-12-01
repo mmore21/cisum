@@ -20,8 +20,8 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">color: white;
-background-color: black;</string>
+   <string notr="true">color: rgb(255, 255, 255);
+background-color:  rgb(40, 40, 40);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="playButton">
@@ -172,14 +172,14 @@ border: 1px solid #777;
 width: 14px;
 margin-top: -2px;
 margin-bottom: -2px;
-border-radius: 4px;
+border-radius: 7px;
 }
 
 QSlider::handle:horizontal:hover {
 background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
     stop:0 #fff, stop:1 #ddd);
 border: 1px solid #444;
-border-radius: 4px;
+border-radius: 7px;
 }
 
 QSlider::sub-page:horizontal:disabled {
@@ -195,7 +195,7 @@ border-color: #999;
 QSlider::handle:horizontal:disabled {
 background: #eee;
 border: 1px solid #aaa;
-border-radius: 4px;
+border-radius: 7px;
 }</string>
     </property>
     <property name="maximum">
@@ -526,14 +526,14 @@ border: 1px solid #777;
 width: 14px;
 margin-top: -2px;
 margin-bottom: -2px;
-border-radius: 4px;
+border-radius: 7px;
 }
 
 QSlider::handle:horizontal:hover {
 background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
     stop:0 #fff, stop:1 #ddd);
 border: 1px solid #444;
-border-radius: 4px;
+border-radius: 7px;
 }
 
 QSlider::sub-page:horizontal:disabled {
@@ -549,7 +549,7 @@ border-color: #999;
 QSlider::handle:horizontal:disabled {
 background: #eee;
 border: 1px solid #aaa;
-border-radius: 4px;
+border-radius: 7px;
 }</string>
     </property>
     <property name="maximum">
@@ -610,7 +610,7 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #995c00, 
      <x>0</x>
      <y>0</y>
      <width>900</width>
-     <height>27</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -637,6 +637,7 @@ color:red;
     <property name="title">
      <string>P&amp;laylist</string>
     </property>
+    <addaction name="actionInfo"/>
     <addaction name="actionClear"/>
    </widget>
    <addaction name="menuFile"/>
@@ -659,6 +660,17 @@ color:red;
   <action name="actionClear">
    <property name="text">
     <string>&amp;Clear</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="actionInfo">
+   <property name="text">
+    <string>&amp;Info</string>
    </property>
    <property name="font">
     <font>

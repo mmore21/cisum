@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     // setup main UI components
     ui->setupUi(this);
     this->setFixedSize(900, 600);
-    this->setWindowTitle("Cisum");
+    this->setWindowTitle(APPLICATION_NAME);
 
     // initialize music player and load playlist
     player = new QMediaPlayer;
@@ -224,11 +224,18 @@ void MainWindow::on_volumeSlider_valueChanged(int value)
 
 void MainWindow::on_saveButton_clicked()
 {
-    QString fileName=QFileDialog::getSaveFileName(this, tr("Save Playlist"),
-            "/home/untitled.m3u",
-            tr("Playlist File (*.m3u)"));
+    if (playlist->mediaCount())
+    {
+        QString fileName=QFileDialog::getSaveFileName(this, tr("Save Playlist"),
+                "/home/untitled.m3u",
+                tr("Playlist File (*.m3u)"));
 
-    playlist->save(QUrl::fromLocalFile(fileName), "m3u");
+        playlist->save(QUrl::fromLocalFile(fileName), "m3u");
+    }
+    else
+    {
+        QMessageBox::warning(this, tr(APPLICATION_NAME.toStdString().c_str()), tr("Unable to save empty playlist."), QMessageBox::Close);
+    }
 }
 
 void MainWindow::on_actionUpload_triggered()
@@ -258,4 +265,10 @@ void MainWindow::on_actionClear_triggered()
     playlist->clear();
     ui->playlistList->clear();
     player->stop();
+}
+
+void MainWindow::on_actionInfo_triggered()
+{
+    QString playlistInfo = "Number of Tracks: " + QString::number(ui->playlistList->count());
+    QMessageBox::information(this, tr(APPLICATION_NAME.toStdString().c_str()), tr(playlistInfo.toStdString().c_str()), QMessageBox::Close);
 }
