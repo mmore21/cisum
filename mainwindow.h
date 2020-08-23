@@ -147,7 +147,9 @@ private:
     QMediaPlaylist *playlist;                   /*!< music playlist */
     QPropertyAnimation *animation;              /*!< animation controller */
     QString styling;                            /*!< stylesheet contents */
-    const QString APPLICATION_NAME = "cisum";   /*!< application name */
+
+    const QString APPLICATION_NAME = "cisum";
+    const QString ACTIVE_BUTTON_CSS = "background-color: #0099ff; border-color: #0099ff";
 };
 
 #endif // MAINWINDOW_H

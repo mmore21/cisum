@@ -152,7 +152,7 @@ void MainWindow::on_loopButton_toggled(bool checked)
 {
     if (checked)
     {
-        ui->loopButton->setStyleSheet("background-color: #0099ff; border-color: #0099ff");
+        ui->loopButton->setStyleSheet(ACTIVE_BUTTON_CSS);
 
         playlist->setPlaybackMode(QMediaPlaylist::CurrentItemInLoop);
     }
@@ -175,7 +175,7 @@ void MainWindow::on_shuffleButton_toggled(bool checked)
 {
     if (checked)
     {
-        ui->shuffleButton->setStyleSheet("background-color: #0099ff; border-color: #0099ff");
+        ui->shuffleButton->setStyleSheet(ACTIVE_BUTTON_CSS);
 
         if (ui->loopButton->isChecked())
         {
@@ -226,15 +226,21 @@ void MainWindow::on_saveButton_clicked()
 {
     if (playlist->mediaCount())
     {
-        QString fileName=QFileDialog::getSaveFileName(this, tr("Save Playlist"),
-                "/home/untitled.m3u",
-                tr("Playlist File (*.m3u)"));
+        QString fileName=QFileDialog::getSaveFileName(
+                    this,
+                    tr("Save Playlist"),
+                    "/home/untitled.m3u",
+                    tr("Playlist File (*.m3u)"));
 
         playlist->save(QUrl::fromLocalFile(fileName), "m3u");
     }
     else
     {
-        QMessageBox::warning(this, tr(APPLICATION_NAME.toStdString().c_str()), tr("Unable to save empty playlist."), QMessageBox::Close);
+        QMessageBox::warning(
+                    this,
+                    tr(APPLICATION_NAME.toStdString().c_str()),
+                    tr("Unable to save empty playlist."),
+                    QMessageBox::Close);
     }
 }
 
@@ -270,5 +276,9 @@ void MainWindow::on_actionClear_triggered()
 void MainWindow::on_actionInfo_triggered()
 {
     QString playlistInfo = "Number of Tracks: " + QString::number(ui->playlistList->count());
-    QMessageBox::information(this, tr(APPLICATION_NAME.toStdString().c_str()), tr(playlistInfo.toStdString().c_str()), QMessageBox::Close);
+    QMessageBox::information(
+            this,
+            tr(APPLICATION_NAME.toStdString().c_str()),
+            tr(playlistInfo.toStdString().c_str()),
+            QMessageBox::Close);
 }
