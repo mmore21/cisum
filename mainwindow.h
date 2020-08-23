@@ -142,13 +142,12 @@ private slots:
     void on_actionInfo_triggered();
 
 private:
-    Ui::MainWindow *ui;             /*!< MainWindow UI */
-    QMediaPlayer *player;           /*!< music player */
-    QMediaPlaylist *playlist;       /*!< music playlist */
-    QPropertyAnimation *animation;  /*!< animation controller */
-    QString styling;                /*!< stylesheet contents */
-
-    const QString APPLICATION_NAME = "cisum";
+    Ui::MainWindow *ui;                         /*!< MainWindow UI */
+    QMediaPlayer *player;                       /*!< music player */
+    QMediaPlaylist *playlist;                   /*!< music playlist */
+    QPropertyAnimation *animation;              /*!< animation controller */
+    QString styling;                            /*!< stylesheet contents */
+    const QString APPLICATION_NAME = "cisum";   /*!< application name */
 };
 
 #endif // MAINWINDOW_H
